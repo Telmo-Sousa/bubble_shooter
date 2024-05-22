@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Shooter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        <div id="scoreBoard">Score: 0</div>
+        <div id="fpsCounter">FPS: 0</div>
+        <div id="startScreen" class="active">
+            <h1>Have fun :D</h1>
+            <button id="startButton">Start Game</button>
+        </div>
+        <div id="pauseMenu">
+            <h1>Paused</h1>
+            <button id="resumeButton">Resume</button>
+        </div>
+        <div id="loseScreen">
+            <h1>You Lose</h1>
+            <button id="restartButton">Restart Game</button>
+        </div>
+        <button id="toggleColorButton">Toggle</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
