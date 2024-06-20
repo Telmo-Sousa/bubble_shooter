@@ -1,8 +1,8 @@
 # bubble_shooter
 
 This is a simple 2D browser game where you control a circular player model that navigates around a canvas to avoid and shoot smaller circular enemies. The goal is to survive as long as possible while shooting enemies to earn points. Each round gets harder, so be prepared for this amazing challenge! Play it now:
-- https://telmo-sousa.github.io/bubble_shooter/
-- https://telmo-sousa.github.io/
+- https://tsousa.dev/bubble_shooter/
+- https://tsousa.dev/
 
 ## Features
 
