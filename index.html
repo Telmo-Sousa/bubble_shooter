@@ -9,21 +9,40 @@
 <body>
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
-        <div id="scoreBoard">Score: 0</div>
-        <div id="fpsCounter">FPS: 0</div>
+        <div id="scoreBoard">Score: <span id="scoreValue">0</span></div>
+        <div id="fpsCounter">FPS: <span id="fpsValue">0</span></div>
+        <div id="roundIndicator">Round: <span id="roundValue">1</span></div>
+        
         <div id="startScreen" class="active">
-            <h1>Have fun :D</h1>
+            <h1>Bubble Shooter</h1>
+            <p>Use WASD to move and click to shoot</p>
             <button id="startButton">Start Game</button>
+            <div class="difficulty-selector">
+                <p>Difficulty:</p>
+                <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+            </div>
         </div>
+        
         <div id="pauseMenu">
             <h1>Paused</h1>
             <button id="resumeButton">Resume</button>
+            <button id="restartFromPauseButton">Restart</button>
+            <p class="controls-info">Press ESC or P to pause/resume</p>
         </div>
+        
         <div id="loseScreen">
-            <h1>You Lose</h1>
-            <button id="restartButton">Restart Game</button>
+            <h1>Game Over</h1>
+            <p>Your score: <span id="finalScore">0</span></p>
+            <p>Rounds survived: <span id="finalRound">0</span></p>
+            <button id="restartButton">Play Again</button>
         </div>
-        <button id="toggleColorButton">Toggle</button>
+        
+        <div class="controls">
+            <button id="toggleColorButton">Toggle Theme</button>
+            <button id="toggleSoundButton">Sound: ON</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

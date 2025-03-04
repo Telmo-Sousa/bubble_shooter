@@ -24,25 +24,13 @@
     --yellow: #fabd2f;
 }
 
-#toggleColorButton {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 16px;
-    padding: 10px;
-    background-color: var(--comment);
-    color: var(--background);
-    border: none;
-    cursor: pointer;
-    display: block;
-}
-
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     overflow: hidden;
     background-color: var(--background);
+    font-family: Arial, sans-serif;
 }
 
 #gameContainer {
@@ -56,26 +44,62 @@ canvas {
     background-color: var(--background);
 }
 
-#startScreen, #loseScreen {
+#startScreen, #loseScreen, #pauseMenu {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: none;
     text-align: center;
     color: var(--foreground);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    min-width: 300px;
+    display: none;
 }
 
-#startScreen.active, #loseScreen.active {
+#startScreen.active, #loseScreen.active, #pauseMenu.active {
+    display: block;
+}
+
+#scoreBoard, #fpsCounter, #roundIndicator {
+    position: absolute;
+    padding: 10px;
+    font-size: 18px;
+    color: var(--foreground);
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    display: none;
+}
+
+#scoreBoard {
+    top: 10px;
+    left: 10px;
+}
+
+#fpsCounter {
+    top: 10px;
+    right: 10px;
+}
+
+#roundIndicator {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#scoreBoard.active, #fpsCounter.active, #roundIndicator.active {
     display: block;
 }
 
 button {
     padding: 10px 20px;
-    font-size: 20px;
+    margin: 5px;
+    font-size: 16px;
     background-color: var(--purple);
     color: var(--foreground);
     border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -83,42 +107,57 @@ button:hover {
     background-color: var(--cyan);
 }
 
-#scoreBoard {
+h1 {
+    margin-bottom: 20px;
+    color: var(--cyan);
+}
+
+.controls {
     position: absolute;
-    top: 10px;
+    bottom: 10px;
     left: 10px;
-    font-size: 24px;
-    color: var(--foreground);
-    display: none;  /* Hide the scoreboard initially */
+    display: flex;
+    gap: 10px;
 }
 
-#scoreBoard.active {
-    display: block;  /* Show the scoreboard when the game starts */
-}
-
-#fpsCounter {
+#toggleColorButton {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
+    bottom: 10px;
+    left: 10px;
+    font-size: 16px;
+    padding: 10px;
+    background-color: var(--comment);
     color: var(--foreground);
-    display: none;  /* Hide the FPS counter initially */
+    border: none;
+    cursor: pointer;
 }
 
-#fpsCounter.active {
-    display: block;  /* Show the FPS counter when the game starts */
-}
-
-#pauseMenu {
+#toggleSoundButton {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    bottom: 10px;
+    left: 120px;
+    font-size: 16px;
+    padding: 10px;
+    background-color: var(--comment);
     color: var(--foreground);
-    display: none;
+    border: none;
+    cursor: pointer;
 }
 
-#pauseMenu.active {
-    display: block;
+.difficulty-btn {
+    padding: 8px 15px;
+    margin: 0 5px;
+    background-color: var(--comment);
+    color: var(--foreground);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.difficulty-btn.selected {
+    background-color: var(--green);
+    font-weight: bold;
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
