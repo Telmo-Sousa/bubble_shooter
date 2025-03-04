@@ -37,11 +37,11 @@ let lastShootTime = 0;
 let shootCooldown = 200; // ms between shots
 
 const sounds = {
-    shoot: new Audio('/audio/shoot.wav'),
-    enemyHit: new Audio('/audio/hit.wav'),
-    playerHit: new Audio('/audio/hit.wav'),
-    powerup: new Audio('/audio/powerUp.wav'),
-    gameOver: new Audio('/audio/gameOver.wav')
+    shoot: new Audio('audio/shoot.wav'),
+    enemyHit: new Audio('audio/hit.wav'),
+    playerHit: new Audio('audio/hit.wav'),
+    powerup: new Audio('audio/powerUp.wav'),
+    gameOver: new Audio('audio/gameOver.wav')
 };
 
 function init() {
