@@ -89,6 +89,13 @@ function startGame() {
     score = 0;
     
     updateScoreDisplay();
+
+    scoreBoard.innerText = 'Score: 0';
+    
+    if (scoreValue) {
+        scoreValue.textContent = '0';
+    }
+
     updateRoundDisplay();
     
     scoreBoard.classList.add('active');
