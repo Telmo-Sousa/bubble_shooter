@@ -1,20 +1,27 @@
-# bubble_shooter
+# Bubble Shooter
 
-This is a simple 2D browser game where you control a circular player model that navigates around a canvas to avoid and shoot smaller circular enemies. The goal is to survive as long as possible while shooting enemies to earn points. Each round gets harder, so be prepared for this amazing challenge! Play it now:
-- https://tsousa.dev/bubble_shooter/
-- https://tsousa.dev/
+Browser survival shooter (plain HTML/CSS/JS, no build step, no dependencies). Host the folder as static files; open `index.html` or serve it. Optional sound files go in `audio/` (`shoot.wav`, `hit.wav`, `powerUp.wav`, `gameOver.wav`); the game runs silently if they are missing.
+
+*(Your original README was not provided, so this one is new. Merge it with yours.)*
+
+## Controls
+| | Desktop | Touch |
+|---|---|---|
+| Move | WASD / arrow keys | Left thumb (floating joystick) |
+| Aim | Mouse | Right thumb (floating joystick) |
+| Shoot | Click or hold | Hold the right stick (auto-fire) |
+| Reload | R | Reload button |
+| Pause | P / Esc | Pause button (top right) |
+
+The game also pauses when the tab or window loses focus.
 
 ## Features
+- Fixed 240 Hz physics step with accumulator; rendering runs separately on `requestAnimationFrame`.
+- Ammo: 12-round magazine, 48 reserve (max 96), 1.1 s reload, auto-reload when empty, manual reload.
+- Drops: Ammo (A), Fast (F), Multi-shot (M), Shield (O, absorbs one hit), Bonus (+50 score). Each has a letter, so none rely on colour alone. 12 s lifetime, blink before expiry, max 4 on screen, higher ammo-drop chance when ammo is low. Timed effects refresh rather than stack.
+- Hit flash, muzzle flash, impact particles, pickup text, best score (localStorage), Sound / Effects / Theme toggles in the Start and Pause menus (saved). Effects default to reduced when the OS requests reduced motion.
+- Responsive canvas (DPR capped at 2). Resizing or rotating keeps the run and rescales positions.
 
-- Player Movement: Use 'W', 'A', 'S', and 'D' keys to move the player.
-- Shooting: Click the mouse to shoot bullets towards the click position.
-- Enemies: Enemies spawn and move towards the player. Avoid them to stay alive.
-- Score and Rounds: Earn points by destroying enemies. New enemies spawn in greater numbers with each round.
-- Game Over: The game ends if an enemy collides with the player.
-- Pause/Resume: Pause and resume the game using 'Escape' or 'P' keys or the 'Resume' button.
-- Color Scheme Toggle: Switch between Dracula and Gruvbox colorscheme using the toggle button.
-- FPS Display: Real-time frame rate (FPS) display.
-   
 ## Requirements
 
 - Supported Browser: A modern web browser with support for HTML5 and Canvas API (e.g., Google Chrome, Mozilla Firefox, Microsoft Edge, Safari).

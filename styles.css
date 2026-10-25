@@ -25,6 +25,11 @@
 }
 
 body, html {
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    overscroll-behavior: none;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -41,10 +46,16 @@ body, html {
 
 canvas {
     display: block;
+    touch-action: none;
     background-color: var(--background);
 }
 
 #startScreen, #loseScreen, #pauseMenu {
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 5;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -112,37 +123,20 @@ h1 {
     color: var(--cyan);
 }
 
-.controls {
+#touchReload, #touchPause {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    display: flex;
-    gap: 10px;
-}
-
-#toggleColorButton {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 16px;
-    padding: 10px;
-    background-color: var(--comment);
+    display: none;
+    background-color: rgba(98, 114, 164, 0.75);
     color: var(--foreground);
-    border: none;
-    cursor: pointer;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+    touch-action: none;
 }
-
-#toggleSoundButton {
-    position: absolute;
-    bottom: 10px;
-    left: 120px;
-    font-size: 16px;
-    padding: 10px;
-    background-color: var(--comment);
-    color: var(--foreground);
-    border: none;
-    cursor: pointer;
-}
+#touchReload { right: 16px; bottom: 28%; width: 76px; height: 76px; font-size: 14px; }
+#touchPause { right: 10px; top: 56px; width: 52px; height: 52px; font-size: 18px; }
+body.touch.playing #touchReload, body.touch.playing #touchPause { display: block; }
+body.touch #fpsCounter { display: none; }
 
 .difficulty-btn {
     padding: 8px 15px;
@@ -161,3 +155,16 @@ h1 {
     transform: scale(1.05);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
+button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.controls-info { font-size: 14px; color: var(--comment); }
+#startScreen p { margin: 8px 0; line-height: 1.4; }
+@media (max-width: 600px) {
+    #scoreBoard, #fpsCounter, #roundIndicator { font-size: 14px; padding: 6px; }
+    #startScreen, #loseScreen, #pauseMenu { padding: 18px; min-width: 0; width: 86vw; }
+}
+@media (prefers-reduced-motion: reduce) { .difficulty-btn { transition: none; } .difficulty-btn.selected { transform: none; } }
+
+.settings { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 14px; }
+.settings button { margin: 0; font-size: 14px; padding: 10px 12px; background-color: var(--comment); color: var(--foreground); }
+.settings button:hover { background-color: var(--cyan); color: #000; }

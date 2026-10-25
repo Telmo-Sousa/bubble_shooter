@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Bubble Shooter</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,7 +15,9 @@
         
         <div id="startScreen" class="active">
             <h1>Bubble Shooter</h1>
-            <p>Use WASD to move and click to shoot</p>
+            <p><b>Desktop:</b> WASD / arrows move &middot; mouse aims &middot; click or hold to shoot &middot; R reloads &middot; P / Esc pauses</p>
+            <p><b>Touch:</b> left thumb moves &middot; right thumb aims and shoots &middot; use the Reload and Pause buttons</p>
+            <p>Best score: <span id="bestValueStart">0</span></p>
             <button id="startButton">Start Game</button>
             <div class="difficulty-selector">
                 <p>Difficulty:</p>
@@ -23,26 +25,35 @@
                 <button class="difficulty-btn" data-difficulty="medium">Medium</button>
                 <button class="difficulty-btn" data-difficulty="hard">Hard</button>
             </div>
+            <div class="settings">
+                <button class="toggle-theme">Toggle Theme</button>
+                <button class="toggle-sound">Sound: ON</button>
+                <button class="toggle-effects">Effects: ON</button>
+            </div>
         </div>
         
         <div id="pauseMenu">
             <h1>Paused</h1>
             <button id="resumeButton">Resume</button>
             <button id="restartFromPauseButton">Restart</button>
-            <p class="controls-info">Press ESC or P to pause/resume</p>
+            <div class="settings">
+                <button class="toggle-theme">Toggle Theme</button>
+                <button class="toggle-sound">Sound: ON</button>
+                <button class="toggle-effects">Effects: ON</button>
+            </div>
+            <p class="controls-info">Press ESC or P to pause/resume. Reload progress is paused too.</p>
         </div>
         
         <div id="loseScreen">
             <h1>Game Over</h1>
             <p>Your score: <span id="finalScore">0</span></p>
             <p>Rounds survived: <span id="finalRound">0</span></p>
+            <p>Best score: <span id="bestValueLose">0</span></p>
             <button id="restartButton">Play Again</button>
         </div>
         
-        <div class="controls">
-            <button id="toggleColorButton">Toggle Theme</button>
-            <button id="toggleSoundButton">Sound: ON</button>
-        </div>
+        <button id="touchReload" aria-label="Reload">Reload</button>
+        <button id="touchPause" aria-label="Pause">II</button>
     </div>
     <script src="script.js"></script>
 </body>
